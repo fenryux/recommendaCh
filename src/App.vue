@@ -1,17 +1,26 @@
-<script>
+<script setup>
 import { RouterView } from 'vue-router';
 import Navbar from './components/Navbar.vue';
-export default{
-  components: {
-    Navbar
-  }
-}
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <Navbar />
-  <div>
+  <v-app class="grey lighten-4">
+    <Navbar />
+    <v-spacer></v-spacer>
     <RouterView />
-  </div>
+    <v-spacer></v-spacer>
+    <Footer />
+  </v-app>
 </template>
 
+<style scoped>
+  header{
+    line-height: 1.5;
+    max-height: 100vh;
+  }
+  .logo{
+    display: block;
+    margin: 0 auto 2rem;
+  }
+</style>

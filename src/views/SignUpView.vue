@@ -1,9 +1,6 @@
 <template>
   <div class="registration-root">
     <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
-      <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-        <h1>RecommendaCh</h1>
-      </div>
       <div class="formbg-outer">
         <div class="formbg">
           <div class="formbg-inner padding-horizontal--48">
@@ -31,20 +28,12 @@
             </form>
           </div>
         </div>
-        <div class="footer-link padding-top--24">
-          <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-            <!-- need to change href to RouterLink's, add link in router/index.js  -->
-            <span><a href="#">© RecommendaCh</a></span>
-            <span><a href="#">Contact</a></span>
-            <span><a href="#">Privacy & terms</a></span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  </template>
+</template>
   
-  <script>
+<script>
   export default {
     data() {
       return {
@@ -62,9 +51,9 @@
       }
     }
   }
-  </script>
+</script>
   
-  <style>
+<style>
   * {
     padding: 0;
     margin: 0;
@@ -84,7 +73,7 @@
     color: #5469d4;
     text-decoration: unset;
   }
-  .login-root {
+  .registration-root {
       background: #fff;
       display: flex;
       width: 100%;
@@ -118,34 +107,8 @@
       -ms-flex-direction: column;
       flex-direction: column;
   }
-  .loginbackground-gridContainer {
-      display: -ms-grid;
-      display: grid;
-      -ms-grid-columns: [start] 1fr [left-gutter] (86.6px)[16] [left-gutter] 1fr [end];
-      grid-template-columns: [start] 1fr [left-gutter] repeat(16,86.6px) [left-gutter] 1fr [end];
-      -ms-grid-rows: [top] 1fr [top-gutter] (64px)[8] [bottom-gutter] 1fr [bottom];
-      grid-template-rows: [top] 1fr [top-gutter] repeat(8,64px) [bottom-gutter] 1fr [bottom];
-      justify-content: center;
-      margin: 0 -2%;
-      transform: rotate(-12deg) skew(-12deg);
-  }
   .box-divider--light-all-2 {
       box-shadow: inset 0 0 0 2px #e3e8ee;
-  }
-  .box-background--blue {
-      background-color: #5469d4;
-  }
-  .box-background--white {
-    background-color: #ffffff; 
-  }
-  .box-background--blue800 {
-      background-color: #212d63;
-  }
-  .box-background--gray100 {
-      background-color: #e3e8ee;
-  }
-  .box-background--cyan200 {
-      background-color: #7fd3ed;
   }
   .padding-top--64 {
     padding-top: 64px;
@@ -261,43 +224,5 @@
       color: #697386;
       font-weight: 600;
       margin: 0 10px;
-  }
-  
-  .animationRightLeft {
-    animation: animationRightLeft 2s ease-in-out infinite;
-  }
-  .animationLeftRight {
-    animation: animationLeftRight 2s ease-in-out infinite;
-  }
-  .tans3s {
-    animation: animationLeftRight 3s ease-in-out infinite;
-  }
-  .tans4s {
-    animation: animationLeftRight 4s ease-in-out infinite;
-  }
-  
-  @keyframes animationLeftRight {
-    0% {
-      transform: translateX(0px);
-    }
-    50% {
-      transform: translateX(1000px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
   } 
-  
-  @keyframes animationRightLeft {
-    0% {
-      transform: translateX(0px);
-    }
-    50% {
-      transform: translateX(-1000px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  } 
-  </style>
-  
+</style>
