@@ -1,27 +1,29 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
-import AuthorizationForm from '../components/AuthorizationForm.vue'
-import RegistrationForm from '../components/RegistrationForm.vue'
-import ForgotPasswordForm from '../components/ForgotPasswordForm.vue'
-
+import SignInView from '../views/SignInView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
-            name: 'auth',
-            component: AuthorizationForm
+            name: 'sign-in',
+            component: SignInView
         },
         {
-            path: '/register',
-            name: 'register',
-            component: RegistrationForm
+            path: '/home',
+            name: 'home',
+            component: () => import('../views/HomeView.vue')
         },
         {
-            path: '/forgot-password',
-            name: 'forgot-password',
-            component: ForgotPasswordForm
+            path: '/about',
+            name: 'about',
+            component: () => import('../views/AboutView.vue')
+        },
+        {
+            path: '/sign-up',
+            name: 'sign-up',
+            component: () => import('../views/SignUpView.vue')
         }
     ]
 })
