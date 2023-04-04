@@ -4,31 +4,28 @@
         <div class="formbg-outer">
             <div class="formbg">
                 <div class="formbg-inner padding-horizontal--48">
-                    <span class="padding-bottom--15">Sign in to your account</span>
+                    <span class="padding-bottom--15">Войди в учетную запись</span>
                     <form id="stripe-login">
                     <div class="field padding-bottom--24">
-                        <label for="email">Email</label>
+                        <label for="email">Электронная почта</label>
                         <input type="email" name="email" v-model="email">
                     </div>
                     <div class="field padding-bottom--24">
                         <div class="grid--50-50">
-                        <label for="password">Password</label>
+                        <label for="password">Пароль</label>
                         <div class="reset-pass">
-                            <router-link to="/forgot-password">Forgot your password?</router-link>
+                            <router-link to="/forgot-password">Забыли пароль?</router-link>
                         </div>
                         </div>
                         <input type="password" name="password">
                     </div>
                     <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
                         <label for="checkbox">
-                        <input type="checkbox" name="checkbox"> Stay signed in for a week
+                        <input type="checkbox" name="checkbox"> Оставаться в сети
                         </label>
                     </div>
                     <div class="field padding-bottom--24">
-                        <input type="submit" name="submit" value="Continue">
-                    </div>
-                    <div class="field">
-                        <a class="ssolink" href="#">Use single sign-on (Google) instead</a>
+                        <input type="submit" name="submit" value="Продолжить">
                     </div>
                     </form>
                 </div>

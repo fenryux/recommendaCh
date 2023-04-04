@@ -48,7 +48,7 @@
 
 <style>
     .menu-item {
-        font-size: 14px;
+        font-size: 16px;
         height: fit-content;
         width: fit-content;
         letter-spacing: -1px;

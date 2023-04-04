@@ -4,26 +4,26 @@
       <div class="formbg-outer">
         <div class="formbg">
           <div class="formbg-inner padding-horizontal--48">
-            <span class="padding-bottom--15">Sign up</span>
+            <span class="padding-bottom--15">Регистрация</span>
             <form id="stripe-signup" @submit.prevent="submitForm">
               <div class="field padding-bottom--24">
-                <label for="name">Name</label>
+                <label for="name">Имя</label>
                 <input type="text" id="name" v-model="name">
               </div>
               <div class="field padding-bottom--24">
-                <label for="email">Email</label>
+                <label for="email">Электронная почта</label>
                 <input type="email" id="email" v-model="email">
               </div>
               <div class="field padding-bottom--24">
-                <label for="password">Password</label>
+                <label for="password">Пароль</label>
                 <input type="password" id="password" v-model="password">
               </div>
               <div class="field padding-bottom--24">
-                <label for="confirm-pass">Confirm password</label>
+                <label for="confirm-pass">Подтверждение пароля</label>
                 <input type="password" id="confirm-pass" v-model="confirmPass">
               </div>
               <div class="field padding-bottom--24">
-                <input type="submit" id="submit" value="Continue">
+                <input type="submit" id="submit" value="Продолжить">
               </div>
             </form>
           </div>
