@@ -7,18 +7,36 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'sign-in',
-            component: SignInView
+            name: 'Home',
+            component: () => import('../views/HomeView.vue'),
+            meta:{
+                auth:true
+            }
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: SignInView,
+            meta:{
+
+            }
         },
         {
             path: '/home',
             name: 'home',
-            component: () => import('../views/HomeView.vue')
+            component: () => import('../views/HomeView.vue'),
+            meta:{
+                auth:true
+            }
         },
         {
             path: '/about',
             name: 'about',
-            component: () => import('../views/AboutView.vue')
+            component: () => import('../views/AboutView.vue'),
+            meta:{
+                auth:true
+            }
+
         },
         {
             path: '/sign-up',
@@ -27,5 +45,16 @@ const router = createRouter({
         }
     ]
 })
-
+router.beforeEach((to, from, next) => {
+    console.log(window.$cookies.get("logged") === 'true');
+    if(to.name === "login" && window.$cookies.get("logged")){
+        next('/')
+    }
+    if (to.meta.auth && !window.$cookies.get("logged")) {
+        next('/login')
+    }
+    else {
+        next()
+    }
+})
 export default router

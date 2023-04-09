@@ -5,10 +5,9 @@
             <div class="formbg">
                 <div class="formbg-inner padding-horizontal--48">
                     <span class="padding-bottom--15">Войди в учетную запись</span>
-                    <form id="stripe-login">
                     <div class="field padding-bottom--24">
                         <label for="email">Электронная почта</label>
-                        <input type="email" name="email" v-model="email">
+                        <input v-model="login" type="text" name="email" >
                     </div>
                     <div class="field padding-bottom--24">
                         <div class="grid--50-50">
@@ -17,7 +16,7 @@
                             <router-link to="/forgot-password">Забыли пароль?</router-link>
                         </div>
                         </div>
-                        <input type="password" name="password">
+                        <input v-model="password" type="password" name="password" >
                     </div>
                     <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
                         <label for="checkbox">
@@ -25,9 +24,8 @@
                         </label>
                     </div>
                     <div class="field padding-bottom--24">
-                        <input type="submit" name="submit" value="Продолжить">
+                      <button  v-on:click="dologin()"> Войти</button>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -36,7 +34,28 @@
 </template>
 
 <script>
+import axios from "axios";
 
+export default{
+  data() {
+    return {
+      password:"",
+      login:""
+    }},
+  methods:{
+    async dologin(){
+      var data = {pass:this.password, login:this.login};
+      console.log(data);
+      axios.post(
+          '/login',data
+      ).then((response)=>{
+        if(response.status === 200){
+          this.$router.push('/')
+        }
+      })
+    }
+  }
+}
 </script>
 
 <style>
