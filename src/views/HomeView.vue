@@ -69,7 +69,7 @@ h1 {
   letter-spacing: -1px;
 }
 a {
-  color: #5469d4;
+  color: black;
   text-decoration: unset;
 }
 
@@ -98,19 +98,19 @@ a {
   box-shadow: inset 0 0 0 2px #e3e8ee;
 }
 .box-background--blue {
-  background-color: #5469d4;
+  background-color: orange;
 }
 .box-background--white {
   background-color: #ffffff;
 }
 .box-background--blue800 {
-  background-color: #212d63;
+  background-color: darkorange;
 }
 .box-background--gray100 {
   background-color: #e3e8ee;
 }
 .box-background--cyan200 {
-  background-color: #7fd3ed;
+  background-color: orange;
 }
 .padding-top--64 {
   padding-top: 64px;
