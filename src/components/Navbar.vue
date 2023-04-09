@@ -65,7 +65,7 @@
                         small
                         router :to="item.router">
                         <span class="menu-item" align-start>
-                            <v-icon left>{{item.icon}}</v-icon>
+                            <v-icon left class="mb-1">{{item.icon}}</v-icon>
                             {{ item.title }}
                         </span>
                     </v-btn>
@@ -87,7 +87,7 @@
             account_items: [
                 {title: 'Профиль', icon: "mdi-home-account", router: "/user-profile"},
                 {title: 'Настройки', icon: "mdi-account-settings", router: "/user-settings"},
-                {title: 'Выйти из учетной записи', icon: "mdi-logout", }
+                {title: 'Выйти из учетной записи', icon: "mdi-logout" }
             ],
             userLoggedOn:true,
             user: {
