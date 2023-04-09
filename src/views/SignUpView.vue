@@ -1,4 +1,5 @@
 <template>
+
   <v-card class="mx-auto pa-5" width="400">
     <v-card-title primary-title>
         Регистрация

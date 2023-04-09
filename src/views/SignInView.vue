@@ -1,4 +1,5 @@
 <template>
+
     <v-card class="mx-auto pa-5" width="400">
         <v-card-title primary-title>
             Войдите в учетную запись
@@ -6,6 +7,7 @@
         <v-form v-model="valid" ref="form" lazy-validation>
             <v-text-field
                 clearable
+                v-model="login"
                 label="Логин"
                 type="login"
                 prepend-icon="mdi-text-account"
@@ -13,6 +15,7 @@
                 required
             ></v-text-field>
             <v-text-field
+                v-model="password"
                 clearable
                 label="Пароль"
                 type="password"
@@ -21,10 +24,10 @@
                 required
             ></v-text-field>
             <v-btn
-                @click="submit"
+                @click="dologin()"
                 block
             >
-                Продолжить
+                Войти
             </v-btn>
         </v-form>
     </v-card>

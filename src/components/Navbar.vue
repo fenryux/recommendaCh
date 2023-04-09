@@ -66,11 +66,30 @@
                 {title: 'Настройки'},
                 {title: 'Выйти из учетной записи'}
             ],
-            userLoggedOn:true,
+            userLoggedOn:false,
             user: {
                 name: "Вася Пупкин"
-            }
+            },
+            timer: ''
         }),
+        computed:  {
+          userLogged:{
+
+          }
+        },
+      created(){
+        this.timer = setInterval(this.checkUserLogon, 1);
+      },
+      methods:{
+          checkUserLogon: function (){
+
+            this.userLoggedOn = window.$cookies.get("logged");
+          }
+      },
+      beforeUnmount () {
+        clearInterval(this.timer);
+      }
+
     }
 </script>
 
