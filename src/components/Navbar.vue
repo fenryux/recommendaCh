@@ -12,11 +12,23 @@
 
         <v-spacer></v-spacer>
         <v-toolbar-items flat>
-            <v-btn class="text-capitalize" style="letter-spacing: -1px;" density="compact" size="small" prepend-icon="mdi-school-outline" variant="plain" router :to="'/'">ВУЗы</v-btn>
-            <v-btn class="text-capitalize" style="letter-spacing: -1px;" density="compact" size="small" prepend-icon="mdi-beaker-outline" variant="plain" router :to="'/about'">Специальности</v-btn>
+            <v-btn density="compact" size="small" prepend-icon="mdi-school-outline" variant="plain" router :to="'/'">
+                <span class="toolbar-item text-none">
+                    ВУЗы
+                </span>
+            </v-btn>
+            <v-btn  density="compact" size="small" prepend-icon="mdi-beaker-outline" variant="plain" router :to="'/about'">
+                <span class="toolbar-item text-none">
+                    Специальности
+                </span>
+            </v-btn>
             <v-menu open-on-hover>
                 <template v-slot:activator="{ props }">
-                    <v-btn class="text-capitalize" v-bind="props" style="letter-spacing: -1px;" density="compact" size="small" prepend-icon="mdi-chart-box-outline" append-icon="mdi-chevron-down" variant="plain">Рейтинги</v-btn>
+                    <v-btn v-bind="props" density="compact" size="small" prepend-icon="mdi-chart-box-outline" append-icon="mdi-chevron-down" variant="plain">
+                        <span class="toolbar-item text-none">
+                            Рейтинги
+                        </span>
+                    </v-btn>
                 </template>
                 <v-list>
                     <v-list-item v-for="(item, index) in feedback_items" :key="index">
@@ -26,7 +38,11 @@
                     </v-list-item>
                 </v-list>
             </v-menu>
-            <v-btn class="text-capitalize" style="letter-spacing: -1px;" density="compact" size="small" prepend-icon="mdi-message-alert-outline" variant="plain">Отзывы</v-btn>
+            <v-btn density="compact" size="small" prepend-icon="mdi-message-alert-outline" variant="plain">
+                <span class="toolbar-item text-none">
+                    Отзывы
+                </span>
+            </v-btn>
         </v-toolbar-items>
         <v-spacer></v-spacer>
 
@@ -37,14 +53,21 @@
 
         <v-menu open-on-hover v-if="userLoggedOn" offset-y class="mt-n2">
             <template v-slot:activator="{ props }">
-                <v-btn v-bind="props" class="d-flex text-none" style="letter-spacing: -1px;" density="default" size="small" prepend-icon="mdi-account" append-icon="mdi-chevron-down" variant="plain">
+                <v-btn v-bind="props" class="d-flex text-none" style="letter-spacing: -1px;" density="default" small prepend-icon="mdi-account" append-icon="mdi-chevron-down" variant="plain">
                     Учетная запись
                 </v-btn>
             </template>
-            <v-list>
+            <v-list style="min-width: fit-content; max-width: fit-content;">
                 <v-list-item v-for="(item, index) in account_items" :key="index">
-                    <v-btn class="text-none" variant="plain" small>
-                        <span class="menu-item">{{ item.title }}</span>
+                    <v-btn
+                        class="text-none menu-button"
+                        variant="plain"
+                        small
+                        router :to="item.router">
+                        <span class="menu-item" align-start>
+                            <v-icon left>{{item.icon}}</v-icon>
+                            {{ item.title }}
+                        </span>
                     </v-btn>
                 </v-list-item>
             </v-list>
@@ -62,9 +85,9 @@
                 {title: 'Топ популярных направлений'}
             ],
             account_items: [
-                {title: 'Профиль'},
-                {title: 'Настройки'},
-                {title: 'Выйти из учетной записи'}
+                {title: 'Профиль', icon: "mdi-home-account", router: "/user-profile"},
+                {title: 'Настройки', icon: "mdi-account-settings", router: "/user-settings"},
+                {title: 'Выйти из учетной записи', icon: "mdi-logout", }
             ],
             userLoggedOn:true,
             user: {
@@ -75,6 +98,9 @@
 </script>
 
 <style>
+    .menu-button {
+        max-width: fit-content;
+    }
     .menu-item {
         font-size: 16px;
         font-weight: lighter;
@@ -97,13 +123,18 @@
         color: #1a1f36;
         box-sizing: border-box;
         word-wrap: break-word;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
+        font-family: Roboto, sans-serif;
     }
     .v-toolbar span {
         display: block;
         font-size: 18px;
         line-height: 28px;
         color: #1a1f36;
+    }
+    .toolbar-item{
+        font-size: medium;
+        font-weight: bold;
+        letter-spacing: -1px;
     }
     .v-toolbar a {
         color: #5469d4;
