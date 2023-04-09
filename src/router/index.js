@@ -24,7 +24,7 @@ const router = createRouter({
         {
             path: '/home',
             name: 'home',
-            component: () => import('../views/HomeView.vue'),
+            component: () => import('../views/HSUList.vue'),
             meta:{
                 auth:true
             }
@@ -42,13 +42,14 @@ const router = createRouter({
             path: '/sign-up',
             name: 'sign-up',
             component: () => import('../views/SignUpView.vue')
-        }
+        },
+
     ]
 })
 router.beforeEach((to, from, next) => {
     console.log(window.$cookies.get("logged") === 'true');
     if(to.name === "login" && window.$cookies.get("logged")){
-        next('/')
+        next('/home')
     }
     if (to.meta.auth && !window.$cookies.get("logged")) {
         next('/login')
