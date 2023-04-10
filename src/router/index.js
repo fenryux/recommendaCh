@@ -7,10 +7,10 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'Home',
+            name: 'Landing',
             component: () => import('../views/HomeView.vue'),
             meta:{
-                auth:true
+                auth:false
             }
         },
         {
@@ -39,7 +39,7 @@ const router = createRouter({
 
         },
         {
-            path: '/sign-up',
+            path: '/register',
             name: 'sign-up',
             component: () => import('../views/SignUpView.vue')
         },
@@ -52,7 +52,7 @@ router.beforeEach((to, from, next) => {
         next('/home')
     }
     if (to.meta.auth && !window.$cookies.get("logged")) {
-        next('/login')
+        router.push("login");
     }
     else {
         next()

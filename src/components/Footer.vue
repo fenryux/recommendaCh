@@ -2,7 +2,7 @@
     <v-footer>
         <v-col class="pt-9 mb-n14 footer-link">
             <v-row justify="center" no-gutters>
-                <span>Нет учетной записи? <router-link to="/sign-up">Зарегистрироваться</router-link></span>
+                <span>Нет учетной записи? <router-link to="/register">Зарегистрироваться</router-link></span>
             </v-row>
             <v-row justify="center" no-gutters>
                 <span class="ml-2"><router-link to="/home">© РекомендаCh</router-link></span>

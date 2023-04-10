@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-expansion-panels class="mb-6">
+    <h1 class="center-center align-center">Список вузов</h1 >
+    <v-expansion-panels class="mb-6 ">
       <v-expansion-panel>
         <v-expansion-panel-title expand-icon="mdi-plus" collapse-icon="mdi-minus">
           <v-icon class="icon">$expand</v-icon>

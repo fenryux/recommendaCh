@@ -4,15 +4,17 @@
     <v-card-title primary-title>
         Регистрация
     </v-card-title>
-    <v-form v-model="valid" ref="form" lazy-validation>
+    <div  >
       <v-text-field
           clearable
+          v-model="name"
           label="Имя"
           prepend-icon="mdi-account"
           variant="underlined"
           required
       ></v-text-field>
       <v-text-field
+          v-model="login"
           clearable
           label="Логин"
           type="login"
@@ -21,6 +23,7 @@
           required
       ></v-text-field>
       <v-text-field
+          v-model="password"
           clearable
           label="Пароль"
           type="password"
@@ -29,6 +32,7 @@
           required
       ></v-text-field>
       <v-text-field
+          v-model="confirmPass"
           clearable
           label="Подтвердите пароль"
           type="password"
@@ -37,30 +41,54 @@
           required
       ></v-text-field>
       <v-btn
-          @click="submit"
+          @click="doRegister"
           block
       >
           Продолжить
       </v-btn>
-    </v-form>
+    </div>
   </v-card>
+  <v-snackbar v-model="snackSamePass" color="red">
+    Пароли различаются.
+  </v-snackbar>
+  <v-snackbar v-model="snackSuccess" color="green">
+    Регистрация прошла успешно
+  </v-snackbar>
 </template>
   
 <script>
+  import axios from "axios";
+  import router from "@/router";
+
   export default {
     data() {
       return {
-        form: {
           name: '',
-          email: '',
+          login: '',
           password: '',
-          confirmPass: ''
-        }
+          confirmPass: '',
+          snackSamePass: false,
+          snackSuccess: false
       }
     },
     methods: {
-      submitForm() {
-        // code for submitting the form to the server
+      doRegister() {
+        var data = {password:this.password, login:this.login,name:this.name};
+        console.log(data);
+        if(this.password === this.confirmPass){
+
+        axios.put("/register",data).then(
+            (response)=>{
+              if(response.status === 201){
+                this.snackSuccess = true;
+                setTimeout(()=>
+                    {router.push('/login')}
+                    ,3000)
+              }
+            })
+        } else {
+          this.snackSamePass =true
+        }
       }
     }
   }

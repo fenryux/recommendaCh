@@ -31,7 +31,7 @@
         <v-spacer></v-spacer>
 
         <v-btn v-if="!userLoggedOn"
-            class="d-flex text-capitalize" style="letter-spacing: -1px;" density="default" size="small" prepend-icon="mdi-login" variant="plain" router :to="'/sign-in'">
+            class="d-flex text-capitalize" style="letter-spacing: -1px;" density="default" size="small" prepend-icon="mdi-login" variant="plain" router :to="'/login'">
             Вход
         </v-btn>
 
@@ -42,7 +42,7 @@
                 </v-btn>
             </template>
             <v-list>
-                <v-list-item v-for="(item, index) in account_items" :key="index">
+                <v-list-item v-for="(item, index) in account_items" :key="index" @click="handleClick()">
                     <v-btn class="text-none" variant="plain" small>
                         <span class="menu-item">{{ item.title }}</span>
                     </v-btn>
@@ -64,7 +64,12 @@
             account_items: [
                 {title: 'Профиль'},
                 {title: 'Настройки'},
-                {title: 'Выйти из учетной записи'}
+                {
+                  title: 'Выйти из учетной записи',
+                  click(){
+
+                  }
+                }
             ],
             userLoggedOn:false,
             user: {
@@ -81,10 +86,19 @@
         this.timer = setInterval(this.checkUserLogon, 1);
       },
       methods:{
-          checkUserLogon: function (){
+        checkUserLogon: function (){
 
-            this.userLoggedOn = window.$cookies.get("logged");
-          }
+          this.userLoggedOn = window.$cookies.get("logged");
+        },
+        logout: ()=>{
+
+        },
+        handleClick() {
+          // this.items[index].click.call(this)
+          this.$cookies.remove("logged")
+          this.$cookies.remove("connect.sid")
+          this.$router.push('/')
+        }
       },
       beforeUnmount () {
         clearInterval(this.timer);

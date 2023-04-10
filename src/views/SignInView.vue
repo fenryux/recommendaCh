@@ -50,7 +50,7 @@ export default{
           '/login',data
       ).then((response)=>{
         if(response.status === 200){
-          this.$router.push('/')
+          this.$router.push('/home')
         }
       })
     }
