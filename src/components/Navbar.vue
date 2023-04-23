@@ -1,7 +1,7 @@
 <template>
     <v-toolbar flat app density="compact">
         <v-toolbar-title class="d-flex justify-space-between">            
-            <router-link to="/">
+            <router-link to="/home">
                 <span class="toolbar-title-text">
                     <v-icon color="orange">mdi-lightning-bolt</v-icon>
                     РекомендаCh
@@ -12,12 +12,12 @@
 
         <v-spacer></v-spacer>
         <v-toolbar-items flat>
-            <v-btn density="compact" size="small" prepend-icon="mdi-school-outline" variant="plain" router :to="'/'">
+            <v-btn density="compact" size="small" prepend-icon="mdi-school-outline" variant="plain" router :to="'/universities'">
                 <span class="toolbar-item text-none">
                     ВУЗы
                 </span>
             </v-btn>
-            <v-btn  density="compact" size="small" prepend-icon="mdi-beaker-outline" variant="plain" router :to="'/about'">
+            <v-btn  density="compact" size="small" prepend-icon="mdi-beaker-outline" variant="plain" router :to="'/specializations'">
                 <span class="toolbar-item text-none">
                     Специальности
                 </span>
@@ -105,28 +105,27 @@
 
           }
         },
-      created(){
-        this.timer = setInterval(this.checkUserLogon, 1);
-      },
-      methods:{
-        checkUserLogon: function (){
-
-          this.userLoggedOn = window.$cookies.get("logged");
+        created(){
+            this.timer = setInterval(this.checkUserLogon, 1);
         },
-        logout: ()=>{
+        methods:{
+            checkUserLogon: function (){
 
+            this.userLoggedOn = window.$cookies.get("logged");
+            },
+            logout: ()=>{
+
+            },
+            handleClick() {
+            // this.items[index].click.call(this)
+            this.$cookies.remove("logged")
+            this.$cookies.remove("connect.sid")
+            this.$router.push('/')
+            }
         },
-        handleClick() {
-          // this.items[index].click.call(this)
-          this.$cookies.remove("logged")
-          this.$cookies.remove("connect.sid")
-          this.$router.push('/')
+        beforeUnmount () {
+            clearInterval(this.timer);
         }
-      },
-      beforeUnmount () {
-        clearInterval(this.timer);
-      }
-
     }
 </script>
 

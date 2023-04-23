@@ -1,10 +1,9 @@
 <template>
-
+  <v-spacer></v-spacer>
   <v-card class="mx-auto pa-5" width="400">
     <v-card-title primary-title>
         Регистрация
     </v-card-title>
-    <div  >
       <v-text-field
           clearable
           v-model="name"
@@ -19,6 +18,15 @@
           label="Логин"
           type="login"
           prepend-icon="mdi-text-account"
+          variant="underlined"
+          required
+      ></v-text-field>
+      <v-text-field
+          v-model="email"
+          clearable
+          label="Электронная почта"
+          type="email"
+          prepend-icon="mdi-email"
           variant="underlined"
           required
       ></v-text-field>
@@ -46,7 +54,6 @@
       >
           Продолжить
       </v-btn>
-    </div>
   </v-card>
   <v-snackbar v-model="snackSamePass" color="red">
     Пароли различаются.
@@ -54,6 +61,7 @@
   <v-snackbar v-model="snackSuccess" color="green">
     Регистрация прошла успешно
   </v-snackbar>
+  <v-spacer></v-spacer>
 </template>
   
 <script>
@@ -65,6 +73,7 @@
       return {
           name: '',
           login: '',
+          email: '',
           password: '',
           confirmPass: '',
           snackSamePass: false,

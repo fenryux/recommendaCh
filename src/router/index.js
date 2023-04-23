@@ -6,8 +6,8 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
-            path: '/',
-            name: 'Landing',
+            path: '/home',
+            name: 'home',
             component: () => import('../views/HomeView.vue'),
             meta:{
                 auth:false
@@ -22,12 +22,9 @@ const router = createRouter({
             }
         },
         {
-            path: '/home',
-            name: 'home',
-            component: () => import('../views/HSUList.vue'),
-            meta:{
-                auth:true
-            }
+            path: '/universities',
+            name: 'universities',
+            component: () => import('../views/UniversitiesView.vue')
         },
         {
             path: '/about',
@@ -46,16 +43,4 @@ const router = createRouter({
 
     ]
 })
-router.beforeEach((to, from, next) => {
-    console.log(window.$cookies.get("logged") === 'true');
-    if(to.name === "login" && window.$cookies.get("logged")){
-        next('/home')
-    }
-    if (to.meta.auth && !window.$cookies.get("logged")) {
-        router.push("login");
-    }
-    else {
-        next()
-    }
-})
-export default router
+export default router;

@@ -6,13 +6,13 @@
       <h1><v-icon size="100" color="orange">mdi-lightning-bolt</v-icon></h1>
     </div>
     <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center" >
-      <h1 style="color:white" ><a rel="dofollow">RecommendaCh</a></h1>
+      <h1 style="color:white" ><a rel="dofollow">РекомендаCh</a></h1>
     </div>
     <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
       <h2><a rel="dofollow">Новый подход к поиску учебного заведения! Попробуйте прямо сейчас!</a></h2>
     </div>
     <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-      <v-btn  @click="go" size="" width="400" height="70" color="blue"   >
+      <v-btn  @click="go" size="" width="400" height="70" color="blue">
         НАЧАТЬ
       </v-btn>
     </div>
