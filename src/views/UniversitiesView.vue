@@ -1,5 +1,5 @@
 <script>
-import Searchbar from '../components/Searchbar.vue';
+import UniversitiesSearchbar from '../components/UniversitiesSearchbar.vue';
 import UniversitiesList from '../components/UniversitiesList.vue';
 
 export default{
@@ -7,7 +7,7 @@ export default{
 
     }),
     components:{
-        Searchbar,
+        UniversitiesSearchbar,
         UniversitiesList
     }
 }
@@ -15,8 +15,10 @@ export default{
 
 <template>
     <v-spacer></v-spacer>
-    <Searchbar />
-    <UniversitiesList />
+    <div class="overflow-y-auto mx-auto pt-10 pb-10">
+        <UniversitiesSearchbar />
+        <UniversitiesList />    
+    </div>
     <v-spacer></v-spacer>
 </template>
 

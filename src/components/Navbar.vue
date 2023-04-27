@@ -1,6 +1,6 @@
 <template>
-    <v-toolbar flat app density="compact">
-        <v-toolbar-title class="d-flex justify-space-between">            
+    <v-app-bar flat app density="compact">
+        <v-app-bar-title class="d-flex justify-space-between">            
             <router-link to="/home">
                 <span class="toolbar-title-text">
                     <v-icon color="orange">mdi-lightning-bolt</v-icon>
@@ -8,7 +8,7 @@
                     <v-icon color="orange">mdi-lightning-bolt</v-icon>
                 </span>
             </router-link>
-        </v-toolbar-title>
+        </v-app-bar-title>
 
         <v-spacer></v-spacer>
         <v-toolbar-items flat>
@@ -32,7 +32,7 @@
                 </template>
                 <v-list>
                     <v-list-item v-for="(item, index) in feedback_items" :key="index">
-                        <v-btn class="text-none" variant="plain" small>
+                        <v-btn class="text-none" variant="plain" small router :to="item.router">
                             <span class="menu-item">{{ item.title }}</span>
                         </v-btn>
                     </v-list-item>
@@ -72,7 +72,7 @@
                 </v-list-item>
             </v-list>
         </v-menu>
-    </v-toolbar>
+    </v-app-bar>
 </template>
 
 <script>
@@ -81,8 +81,8 @@
             feedback_items: [
                 {title: 'Рейтинг ВУЗов по отзывам'},
                 {title: 'Рейтинг ВУЗов по проходному баллу'},
-                {title: 'Топ-30 ВУЗов'},
-                {title: 'Топ популярных направлений'}
+                {title: 'Топ-30 ВУЗов', router:'/top30'},
+                {title: 'Топ популярных направлений', router:'/top-specs'}
             ],
             account_items: [
                 {title: 'Профиль'},
