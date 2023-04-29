@@ -4,9 +4,33 @@
         min-width="700"
         max-width="700"
     >
+        <v-text-field
+            v-model="search"
+            hide-details
+            label="Поиск ВУЗов"
+            prepend-inner-icon="mdi-magnify"
+            single-line
+            clearable
+            @click:clear="onSearchClear"
+        ></v-text-field>
+        <v-select
+            v-model="select"
+            chips closable-chips multiple
+            label="Выберите критерии"
+            :items="tag_items"
+            clearable
+            @click:clear="onSelectClear"
+        >
+        </v-select>
+    </v-card> 
+    <v-card
+        class="mx-auto"
+        min-width="700"
+        max-width="700"
+    >
         <v-expansion-panels variant="accordion">
             <v-expansion-panel
-                v-for="item in universities"
+                v-for="item in filteredItems"
                 :key="item.shortName"
             >
                 <v-expansion-panel-title>
@@ -86,6 +110,7 @@
                     educationalPrograms: 20,
                     places: 1054,
                     passingScore: 69.5,
+                    criterias: [1, 3],
                     hasDorm: true,
                     educationQualityScore: 7.25,
                     travelCost: 638,
@@ -98,6 +123,7 @@
                     educationalPrograms: 118,
                     places: 3710,
                     passingScore: 74.5,
+                    criterias: [1, 2, 3],
                     hasDorm: true,
                     educationQualityScore: 6.61,
                     travelCost: 832,
@@ -110,6 +136,7 @@
                     educationalPrograms: 52,
                     places: 3237,
                     passingScore: 76,
+                    criterias: [1, 2, 3],
                     hasDorm: true,
                     educationQualityScore: 6.31,
                     travelCost: 838,
@@ -122,6 +149,7 @@
                     educationalPrograms: 70,
                     places: 739,
                     passingScore: 77.6,
+                    criterias: [1, 2, 3],
                     hasDorm: true,
                     educationQualityScore: 7.5,
                     travelCost: 1217,
@@ -134,6 +162,7 @@
                     educationalPrograms: 19,
                     places: 2006,
                     passingScore: 78.8,
+                    criterias: [1, 5],
                     hasDorm: true,
                     educationQualityScore: 5.4,
                     travelCost: 1877,
@@ -146,13 +175,41 @@
                     educationalPrograms: 81,
                     places: 3936,
                     passingScore: undefined,
+                    criterias: [1, 2, 3],
                     hasDorm: true,
                     educationQualityScore: 6.83,
                     travelCost: 1079,
                     description: 'Московский государственный университет имени М. В. Ломоносова (МГУ) — ведущий и крупнейший вуз Москвы, центр отечественной науки и культуры, один из старейших университетов России. МГУ включает 9 научно-исследовательских институтов, 40 факультетов и более 300 кафедр. В Университете обучается более 36 тыс. студентов, около 4 тыс. аспирантов и 10 тыс. слушателей подготовительных отделений, итого, в общей сложности около 50 тыс.чел.'
                 },
-            ]
-        })
+            ],
+            tag_items: [
+                {title: 'Общежитие', value: 1, icon: 'mdi-home', color: 'success'},
+                {title: 'Военная кафедра', value: 2, icon: 'mdi-account-tie-hat', color: 'green'},
+                {title: 'Технический', value: 3, icon: 'mdi-wrench', color: 'primary'},
+                {title: 'Гуманитарный', value: 4, icon: 'mdi-pen', color: 'orange'},
+                {title: 'Медицинский', value: 5, icon: 'mdi-medical-bag', color: 'red'},
+                {title: 'Военный', value: 6, icon: 'mdi-knife-military', color: 'green'}
+            ],
+            search: '',
+            select: []
+        }),
+        computed: {
+            filteredItems() {
+                return this.universities.filter(item=>{
+                    return (item.fullName.toLowerCase().includes(this.search.toLowerCase()) ||
+                           item.shortName.toLowerCase().includes(this.search.toLowerCase())) &&
+                           this.select.every(criteria => item.criterias.includes(criteria));
+                });
+            }
+        },
+        methods:{
+            onSearchClear(){
+                this.search = '';
+            },
+            onSelectClear(){
+                this.select = [];
+            }
+        }
     }
 </script>
 

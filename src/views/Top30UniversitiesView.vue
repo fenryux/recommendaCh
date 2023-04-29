@@ -1,23 +1,23 @@
 <template>
-<v-spacer></v-spacer>
-<v-card
-    class="mx-auto"
-    max-width="700"
-    min-width="700"
->
-    <v-list lines="one">
-        <v-list-item
-            v-for="item in items"
-            :key="item.title"
-            :title="item.title"
-            :subtitle="item.subtitle"
-            :prepend-avatar="item.avatar"
-            :append-icon="item.appendIcon"
-            item-props
-        ></v-list-item>
-    </v-list>
-</v-card>
-<v-spacer></v-spacer>
+<div class="d-flex mx-auto pt-10 pb-10 align-center">
+    <v-card
+        class="mx-auto"
+        max-width="700"
+        min-width="700"
+    >
+        <v-list lines="one">
+            <v-list-item
+                v-for="item in items"
+                :key="item.title"
+                :title="item.title"
+                :subtitle="item.subtitle"
+                :prepend-avatar="item.avatar"
+                :append-icon="item.appendIcon"
+                item-props
+            >{{item.value}}</v-list-item>
+        </v-list>
+    </v-card>
+</div>
 </template>
 
 <script>

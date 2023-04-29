@@ -1,5 +1,4 @@
 <script>
-import UniversitiesSearchbar from '../components/UniversitiesSearchbar.vue';
 import UniversitiesList from '../components/UniversitiesList.vue';
 
 export default{
@@ -7,7 +6,6 @@ export default{
 
     }),
     components:{
-        UniversitiesSearchbar,
         UniversitiesList
     }
 }
