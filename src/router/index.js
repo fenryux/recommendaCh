@@ -6,6 +6,15 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
+            path: '/',
+            redirect: '/home',
+            name: 'defaultpage',
+            component: () => import('../views/HomeView.vue'),
+            meta:{
+                auth:false
+            }
+        },
+        {
             path: '/home',
             name: 'home',
             component: () => import('../views/HomeView.vue'),
