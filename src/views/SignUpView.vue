@@ -83,7 +83,12 @@
     },
     methods: {
       doRegister() {
-        var data = {password:this.password, login:this.login,name:this.name};
+        var data = {
+          password: this.password, 
+          login: this.login,
+          name: this.name,
+          email: this.email
+        };
         console.log(data);
         if(this.password === this.confirmPass){
 

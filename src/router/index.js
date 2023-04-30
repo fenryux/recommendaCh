@@ -27,7 +27,7 @@ const router = createRouter({
             name: 'login',
             component: SignInView,
             meta:{
-
+                auth: false
             }
         },
         {
@@ -41,9 +41,20 @@ const router = createRouter({
             component: () => import('../views/SpecializationsView.vue')
         },
         {
+            path: '/proforientation',
+            name: 'proforientation',
+            component: () => import('../views/ProforientationView.vue'),
+            meta:{
+                auth:true
+            }
+        },
+        {
             path: '/top30',
             name: 'top30',
-            component: () => import('../views/Top30UniversitiesView.vue')
+            component: () => import('../views/Top30UniversitiesView.vue'),
+            meta:{
+                auth:true
+            }
         },
         {
             path: '/about',

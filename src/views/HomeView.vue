@@ -12,7 +12,7 @@
       <h2><a rel="dofollow">Новый подход к поиску учебного заведения! Попробуйте прямо сейчас!</a></h2>
     </div>
     <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-      <v-btn  @click="go" size="" width="400" height="70" color="blue">
+      <v-btn v-on:click="go()" size="" width="400" height="70" color="blue">
         НАЧАТЬ
       </v-btn>
     </div>
@@ -58,9 +58,14 @@ import router from "@/router";
 
 export default {
   name: "HomeView",
+  userLoggedOn: false,
   methods:{
-    go:()=>{
-      router.push("/home");
+    go(){
+      let userLoggedOn = window.$cookies.get("logged");
+      if(userLoggedOn){
+        router.push("/universities");
+      }
+      else router.push("/login");
     }
   }
 

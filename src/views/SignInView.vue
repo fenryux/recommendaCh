@@ -53,13 +53,16 @@ export default{
     }},
   methods:{
     async dologin(){
-      var data = {pass:this.password, login:this.login};
+      var data = {
+        pass: this.password, 
+        login:this.login
+      };
       console.log(data);
       axios.post(
           '/login',data
       ).then((response)=>{
         if(response.status === 200){
-          this.$router.push('/home')
+          this.$router.push('/universities')
         }
       })
     }

@@ -57,13 +57,13 @@
                             <span class="text-subtitle-1 ml-2">Образовательных программ</span>
                         </div>
                         <div class="d-flex flex-row align-center">
-                            <v-avatar color="green" size="42">
+                            <v-avatar :color="item.places >= 1000 ? 'green' : 'yellow'" size="42">
                                 <span class="text-body-1">{{ item.places }}</span>
                             </v-avatar>
                             <span class="text-subtitle-1 ml-2">Бюджетных мест</span>
                         </div>
                         <div class="d-flex flex-row align-center">
-                            <v-avatar color="green" size="42">
+                            <v-avatar :color="item.passingScore >= 7 ? 'green' : 'yellow'" size="42">
                                 <span class="text-body-1">{{ item.passingScore }}</span>
                             </v-avatar>
                             <span class="text-subtitle-1 ml-2">Средневзвешенный проходной балл за предмет</span>
@@ -77,13 +77,13 @@
                             <span class="text-subtitle-1 ml-2">Есть общежитие</span>
                         </div>
                         <div class="d-flex flex-row align-center">
-                            <v-avatar color="green" size="42">
+                            <v-avatar :color="item.educationQualityScore >= 7 ? 'green' : 'yellow'" size="42">
                                 <span class="text-body-1">{{ item.educationQualityScore }}</span>
                             </v-avatar>
                             <span class="text-subtitle-1 ml-2">Качество образования</span>
                         </div>
                         <div class="d-flex flex-row align-center">
-                            <v-avatar color="yellow" size="42">
+                            <v-avatar :color="item.travelCost >= 1000 ? 'red' : 'green'" size="42">
                                 <span class="text-body-1">{{ item.travelCost }}</span>
                             </v-avatar>
                             <span class="text-subtitle-1 ml-2">Средние затраты на дорогу в месяц</span>

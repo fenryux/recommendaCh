@@ -22,6 +22,11 @@
                     Специальности
                 </span>
             </v-btn>
+            <v-btn v-if="userLoggedOn" density="compact" size="small" prepend-icon="mdi-professional-hexagon" variant="plain" router :to="'/proforientation'">
+                <span class="toolbar-item text-none">
+                    Профориентация
+                </span>
+            </v-btn>
             <v-menu open-on-hover>
                 <template v-slot:activator="{ props }">
                     <v-btn v-bind="props" density="compact" size="small" prepend-icon="mdi-chart-box-outline" append-icon="mdi-chevron-down" variant="plain">
