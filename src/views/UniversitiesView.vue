@@ -14,7 +14,6 @@ export default{
 <template>
     <v-spacer></v-spacer>
     <div class="overflow-y-auto mx-auto pt-10 pb-10">
-        <UniversitiesSearchbar />
         <UniversitiesList />    
     </div>
     <v-spacer></v-spacer>

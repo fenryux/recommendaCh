@@ -55,7 +55,7 @@ export default{
     async dologin(){
       var data = {
         pass: this.password, 
-        login:this.login
+        login: this.login
       };
       console.log(data);
       axios.post(

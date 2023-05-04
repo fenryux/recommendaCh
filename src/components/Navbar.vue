@@ -105,11 +105,6 @@
             },
             timer: ''
         }),
-        computed:  {
-          userLogged:{
-
-          }
-        },
         created(){
             this.timer = setInterval(this.checkUserLogon, 1);
         },
@@ -122,10 +117,10 @@
 
             },
             handleClick() {
-            // this.items[index].click.call(this)
-            this.$cookies.remove("logged")
-            this.$cookies.remove("connect.sid")
-            this.$router.push('/')
+                // this.items[index].click.call(this)
+                this.$cookies.remove("logged")
+                this.$cookies.remove("connect.sid")
+                this.$router.push('/')
             }
         },
         beforeUnmount () {

@@ -91,17 +91,17 @@
         };
         console.log(data);
         if(this.password === this.confirmPass){
-
-        axios.put("/register",data).then(
+          axios.put("/register",data).then(
             (response)=>{
               if(response.status === 201){
                 this.snackSuccess = true;
                 setTimeout(()=>
                     {router.push('/login')}
-                    ,3000)
+                    ,1000)
               }
-            })
-        } else {
+          })
+        } 
+        else {
           this.snackSamePass =true
         }
       }
