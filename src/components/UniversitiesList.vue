@@ -4,30 +4,6 @@
         min-width="700"
         max-width="700"
     >
-        <v-text-field
-            v-model="search"
-            hide-details
-            label="Поиск ВУЗов"
-            prepend-inner-icon="mdi-magnify"
-            single-line
-            clearable
-            @click:clear="onSearchClear"
-        ></v-text-field>
-        <v-select
-            v-model="select"
-            chips closable-chips multiple
-            label="Выберите критерии"
-            :items="tag_items"
-            clearable
-            @click:clear="onSelectClear"
-        >
-        </v-select>
-    </v-card> 
-    <v-card
-        class="mx-auto"
-        min-width="700"
-        max-width="700"
-    >
         <v-expansion-panels variant="accordion">
             <v-expansion-panel
                 v-for="item in filteredItems"
